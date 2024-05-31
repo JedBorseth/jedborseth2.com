@@ -1,0 +1,152 @@
+---
+import Avatar from "../components/Avatar.astro";
+import Badge from "../components/Badge.astro";
+import Link from "../components/Link.astro";
+
+// icons
+import Github from "../../public/images/icons/github.svg";
+import Twitter from "../../public/images/icons/x.svg";
+import LinkedIn from "../../public/images/icons/linkedin.svg";
+import Gmail from "../../public/images/icons/gmail.svg";
+import NextJS from "../../public/images/icons/nextdotjs.svg";
+import OpenAi from "../../public/images/icons/openai.svg";
+import CV from "../../public/images/icons/readdotcv.svg";
+import Three from "../../public/images/icons/threejs.svg";
+import TS from "../../public/images/icons/typescript.svg";
+import Movie from "../../public/images/icons/film.svg";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Jed Borseth | Developer</title>
+  </head>
+  <body>
+    <main class="min-h-screen bg-bg md:flex">
+      <section class="text-lg h-full md:w-1/2 md:sticky top-0 left-0">
+        <div class="flex flex-col p-20 items-center md:items-baseline">
+          <Avatar
+            img="https://avatars.githubusercontent.com/u/95988576?v=4"
+            className="m-2"
+          />
+          <h1 class="text-4xl font-medium">Jed Borseth</h1>
+          <p>
+            A Passionate full stack web developer with experience in
+            serverless...
+          </p>
+          <div class="flex gap-1">
+            <Badge text="Developer" />
+            <Badge text="Snuggler" />
+          </div>
+        </div>
+      </section>
+      <section
+        class="grid w-full grid-cols-2 gap-10 md:grid-cols-3 xl:w-1/2 xl:pb-16 sm:grid-cols-1 sm:gap-7 p-4"
+      >
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="LinkedIn"
+          href="https://github.com/JedBorseth"
+          icon={LinkedIn.src}
+        />
+        <Link
+          title="Twitter"
+          href="https://github.com/JedBorseth"
+          icon={Twitter.src}
+        />
+        <Link
+          title="Resume"
+          href="https://github.com/JedBorseth"
+          icon={CV.src}
+        />
+        <Link
+          title="Email"
+          href="https://github.com/JedBorseth"
+          icon={Gmail.src}
+        />
+        <Link
+          title="Movie DB"
+          repo="https://github.com/JedBorseth/movie-database"
+          href="https://github.com/JedBorseth"
+          icon={Movie.src}
+        />
+        <Link
+          title="Uno Game"
+          repo="https://github.com/joshborseth/uno-game"
+          href="https://github.com/JedBorseth"
+          icon={NextJS.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+        <Link
+          title="Github"
+          href="https://github.com/JedBorseth"
+          icon={Github.src}
+        />
+      </section>
+    </main>
+    <footer class="bg-bg p-5 text-center">
+      <span>&copy; Copyright Jed Borseth {new Date().getFullYear()}</span>
+    </footer>
+  </body>
+</html>
