@@ -1,0 +1,31 @@
+---
+import Avatar from "../../components/Avatar.astro";
+import Link from "../../components/Link.astro";
+import Layout from "../../layouts/layout.astro";
+export function getStaticPaths() {
+  return [
+    { params: { project: "uno" } },
+    { params: { project: "movie-db" } },
+    { params: { project: "threejs" } },
+  ];
+}
+
+const { project } = Astro.params;
+---
+
+<Layout
+  title={"Jed Borseth | " + project.charAt(0).toUpperCase() + project.slice(1)}
+  canonicalURL={`Project | ${project}`}
+>
+  <div class="">
+    <div class="scale-50">
+      <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+    </div>
+    <h1>{project}</h1>
+    <div
+      transition:name={project}
+      class="absolute top-0 left-0 opacity-0 bg-main h-screen w-screen -z-50"
+    >
+    </div>
+  </div>
+</Layout>

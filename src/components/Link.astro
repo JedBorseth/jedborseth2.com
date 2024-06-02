@@ -1,18 +1,31 @@
 ---
 import { cn } from "../lib/utils";
-const className = Astro.props.className;
-const title = Astro.props.title;
-const href = Astro.props.href;
-const icon = Astro.props.icon;
+
+type PropTypes = {
+  className?: string;
+  title?: string;
+  href?: string;
+  icon?: string;
+  openNew?: boolean;
+  lazy?: boolean;
+  projectName?: string;
+};
+const { className, title, href, icon, openNew, lazy, projectName }: PropTypes =
+  Astro.props;
 ---
 
 <a
   class="rounded-base border-2 border-black bg-main p-5 shadow-base transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none max-h-44"
-  target="_blank"
+  target={openNew ? "_blank" : "_self"}
   href={href}
-  ><img class="h-8 w-8 sm:h-10 sm:w-10" src={icon} alt={`Icon`} /><p
-    class="mt-3 text-lg font-heading sm:text-xl"
-  >
+  transition:name={projectName}
+>
+  <img
+    class="h-8 w-8 sm:h-10 sm:w-10"
+    src={icon}
+    alt={`Icon`}
+    loading={lazy ? "lazy" : "eager"}
+  /><p class="mt-3 text-lg font-heading sm:text-xl">
     {title}
   </p><p class="mt-1 text-sm font-base sm:text-base">@jedborseth</p></a
 >
