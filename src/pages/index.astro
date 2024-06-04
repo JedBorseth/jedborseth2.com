@@ -15,6 +15,12 @@ import CV from "../../public/images/icons/readdotcv.svg";
 import Three from "../../public/images/icons/threejs.svg";
 import TS from "../../public/images/icons/typescript.svg";
 import Movie from "../../public/images/icons/film.svg";
+
+if (process.env.NODE_ENV === "production") {
+  console.log(
+    "Site is currently under construction and is subject to frequent change."
+  );
+}
 ---
 
 <Layout title="Jed Borseth | Developer" canonicalURL="Home">
