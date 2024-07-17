@@ -15,28 +15,33 @@ import CV from "../../public/images/icons/readdotcv.svg";
 import Three from "../../public/images/icons/threejs.svg";
 import TS from "../../public/images/icons/typescript.svg";
 import Movie from "../../public/images/icons/film.svg";
-
-if (process.env.NODE_ENV === "production") {
-  console.log(
-    "Site is currently under construction and is subject to frequent change."
-  );
-}
 ---
 
 <Layout title="Jed Borseth | Developer" canonicalURL="Home">
   <section class="text-lg h-full md:w-1/2 md:sticky top-0 left-0">
-    <div class="flex flex-col p-20 items-center md:items-baseline">
+    <div class="flex flex-col p-10 md:p-20 items-center md:items-baseline">
       <Avatar
         img="https://avatars.githubusercontent.com/u/95988576?v=4"
         className="m-2"
       />
       <h1 class="text-4xl font-medium">Jed Borseth</h1>
       <p>
-        A Passionate full stack web developer with experience in serverless...
+        Innovative web developer with a passion for crafting seamless,
+        user-friendly websites. Expert in modern web technologies and design, I
+        transform ideas into engaging digital experiences that drive results and
+        exceed expectations.
       </p>
-      <div class="flex gap-1">
-        <Badge text="Developer" />
-        <Badge text="Other Title" />
+      <div class="flex gap-1 flex-wrap md:p-5 mt-2">
+        <Badge text="Typescript" />
+        <Badge text="NextJS" />
+        <Badge text="React" />
+        <Badge text="MySQL" />
+        <Badge text="PHP" />
+        <Badge text="DrizzleORM" />
+        <Badge text="GoLang" />
+        <Badge text="NodeJS" />
+        <Badge text="ThreeJS" />
+        <Badge text="tRPC" />
       </div>
     </div>
   </section>
@@ -51,13 +56,13 @@ if (process.env.NODE_ENV === "production") {
     />
     <Link
       title="LinkedIn"
-      href="https://github.com/JedBorseth"
+      href="https://www.linkedin.com/in/jedsen-borseth-289a64234/"
       openNew
       icon={LinkedIn.src}
     />
     <Link
       title="Twitter"
-      href="https://github.com/JedBorseth"
+      href="https://x.com/JedBorseth"
       openNew
       icon={Twitter.src}
     />
@@ -69,12 +74,14 @@ if (process.env.NODE_ENV === "production") {
     />
     <Link
       title="Email"
-      href="https://github.com/JedBorseth"
+      subtitle="jedborseth@gmail.com"
+      href="mailto:jedborseth@gmail.com"
       openNew
       icon={Gmail.src}
     />
     <Link
       title="Movie DB"
+      subtitle="moviedb.jedborseth.com"
       repo="https://github.com/JedBorseth/movie-database"
       href="./projects/movie-db"
       projectName="movie-db"
@@ -97,18 +104,14 @@ if (process.env.NODE_ENV === "production") {
       href="https://github.com/JedBorseth"
       icon={Github.src}
     />
+    <Link title="More" href="https://github.com/JedBorseth" icon={Github.src} />
     <Link
-      title="Github"
+      title="Projects"
       href="https://github.com/JedBorseth"
       icon={Github.src}
     />
     <Link
-      title="Github"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-    />
-    <Link
-      title="Github"
+      title="Soon!"
       href="https://github.com/JedBorseth"
       icon={Github.src}
     />
