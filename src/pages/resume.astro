@@ -2,7 +2,9 @@
 import Avatar from "../components/Avatar.astro";
 import Layout from "../layouts/layout.astro";
 import CV from "../../public/images/icons/readdotcv.svg";
-import PDF from "../../public/resume.pdf";
+import PDF from "/resume.pdf";
+import Git from "../../public/images/icons/github.svg";
+import Mail from "../../public/images/icons/gmail.svg";
 ---
 
 <Layout
@@ -13,14 +15,33 @@ import PDF from "../../public/resume.pdf";
     <div class="scale-50">
       <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
     </div>
+    <a
+      href="https://github.com/JedBorseth"
+      class="md:self-start md:ml-10 hover:scale-105 flex items-end gap-5"
+    >
+      <img src={Git.src} alt="Github" class="w-10" />
+      <p>Github</p>
+    </a>
+    <a
+      href="mailto:jedborseth@gmail.com"
+      class="md:self-start md:ml-10 hover:scale-105 flex items-end gap-5"
+    >
+      <img src={Mail.src} alt="Mail" class="w-10" />
+      <p>Email</p>
+    </a>
     <img
-      class="h-20 w-20"
+      class="h-20 w-20 scale-0"
       src={CV.src}
       alt={`Icon`}
       transition:name="resume-icon"
     />
-    <p>socials are gonna animate here</p>
-    <p>this is the wrong resume -></p>
+
+    <a
+      href="/resume.pdf"
+      class="h-12 md:hidden border-black border-2 p-2.5 bg-[#A6FAFF] hover:bg-[#79F7FF] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:bg-[#00E1EF] rounded-full"
+    >
+      Download Resume
+    </a>
   </div>
-  <embed src={PDF} class="w-max h-screen flex-1" />
+  <iframe src={PDF} class="w-max h-screen flex-1 max-md:hidden"></iframe>
 </Layout>

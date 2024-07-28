@@ -57,6 +57,16 @@ const { description, author, socialImageURL } = {
   </head>
   <body>
     <main class="min-h-screen bg-bg flex flex-col md:flex-row">
+      {
+        Astro.url.pathname !== "/" && (
+          <a
+            class="border-black grid place-items-center border-2 rounded-md bg-mainAccent hover:bg-main active:bg-main w-12 h-10 absolute top-1 left-1 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+            href="/"
+          >
+            Back
+          </a>
+        )
+      }
       <slot />
     </main>
     <footer class="bg-bg p-5 text-center">
