@@ -1,0 +1,128 @@
+---
+import Avatar from "./Avatar.astro";
+
+const project = {
+  title: "Uno Card Game Project",
+  subtitle: "A full-stack Uno card game application with real-time multiplayer functionality, built in 12 hours for a hackathon.",
+  techStack: ["tRPC", "DrizzleORM", "TypeScript", "PusherJS", "TailwindCSS", "Planetscale", "Next.js"],
+  hackathonDetails: {
+    event: "November 2023 UFV (University of the Fraser Valley) Hackathon",
+    duration: "12 hours",
+    result: "1st Place",
+  },
+  collaborators: [
+    { name: "Josh Borseth", role: "Full-stack Developer" },
+  ],
+  description: `
+    The Uno Card Game Project is a full-stack application designed to provide users with a real-time multiplayer Uno card game experience. Built within 12 hours for a hackathon hosted by UFV, this project showcases the rapid development of a complex game using modern web technologies. Real-time interactions are facilitated using PusherJS, enabling smooth gameplay and immediate updates during matches. The collaboration with Josh Borseth was key to the successful completion of the project, resulting in us winning 1st place.
+  `,
+  features: [
+    "Real-Time Multiplayer: Players can compete against each other in real-time, with instantaneous updates using PusherJS.",
+    "Full-Stack Type Safety: Utilizing TypeScript with tRPC and DrizzleORM to ensure type consistency between the client and server.",
+    "SQL Database: Planetscale is used as the primary database, providing scalability and reliability for managing game state and user data.",
+    "Custom Game Logic: Developed custom game rules and state management to accurately replicate the Uno card game experience.",
+    "Responsive UI: Built with TailwindCSS, the game interface is fully responsive and optimized for various devices.",
+  ],
+  challenges: [
+    "Real-Time Communication: Managing the real-time communication between multiple players required careful coordination. PusherJS was used to create seamless, low-latency connections.",
+    "Ensuring Type Safety: Maintaining type safety from the database to the client using tRPC and DrizzleORM required thoughtful integration. The benefit was a reduction in runtime errors and improved developer confidence.",
+    "Database Scaling: Using Planetscale to handle concurrent connections and manage real-time game states involved designing the database to handle rapid state changes efficiently.",
+    "Game State Management: Implementing the rules of Uno and ensuring consistent state between all players was challenging. Custom hooks and server-side logic ensured that the game stayed synchronized.",
+    "Time Constraints: With only 12 hours to complete the project, time management and prioritization were crucial. We focused on implementing core features first, ensuring that the game was fully functional before adding additional enhancements.",
+  ],
+  projectImages: [
+    { src: "/images/uno-game-1.png", alt: "Uno game lobby screen" },
+    { src: "/images/uno-game-2.png", alt: "In-game screen with player actions" },
+    { src: "/images/uno-game-3.png", alt: "Real-time score update view" },
+  ],
+  testimonials: [
+    {
+      quote: "The real-time capabilities of this game were impressive. It felt like a real Uno experience, but online!",
+      author: "Fellow Hackathon Participant",
+    },
+    {
+    quote: "An incredible project completed in such a short time! The real-time features worked flawlessly, and the game was a lot of fun to play.",
+    author: "Hackathon Judge"
+    },
+  ],
+};
+---
+
+<section class="p-8 m-8 border-4 border-black bg-yellow-200 shadow-[8px_8px_0_rgb(0,0,0)] relative">
+    <div class="scale-[0.25] absolute -top-20 -right-20 group">
+        <a href="/">
+            <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+            <p class="group-hover:grid hidden h-56 w-56 rounded-full place-items-center text-6xl">Go Back</p>
+        </a>
+      </div>
+  <h1 class="text-4xl font-bold mb-4">{project.title}</h1>
+  <h2 class="text-2xl mb-6">{project.subtitle}</h2>
+  <p class="text-lg leading-relaxed">{project.description}</p>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-pink-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Hackathon Details</h2>
+  <p class="text-lg">
+    This project was created during the <strong>{project.hackathonDetails.event}</strong>, which had a time limit of <strong>{project.hackathonDetails.duration}</strong>. Our efforts resulted in <strong>{project.hackathonDetails.result}</strong>!
+  </p>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-cyan-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Collaboration</h2>
+  <p class="text-lg mb-4">
+    I collaborated with <strong>Josh Borseth</strong> throughout the entire project. Josh's contributions as a full-stack developer were instrumental in building the game logic, integrating real-time features, and ensuring the application was ready within the tight deadline.
+  </p>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-lime-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Features</h2>
+  <ul class="list-disc list-inside">
+    {project.features.map((feature) => (
+      <li>{feature}</li>
+    ))}
+  </ul>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-purple-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Challenges and Solutions</h2>
+  <ul class="list-disc list-inside">
+    {project.challenges.map((challenge) => (
+      <li>{challenge}</li>
+    ))}
+  </ul>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-blue-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Project Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {project.projectImages.map(image => (
+      <img src={image.src} alt={image.alt} class="border-4 border-black shadow-[8px_8px_0_rgb(0,0,0)]" />
+    ))}
+  </div>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-red-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Testimonials</h2>
+  {project.testimonials.map(testimonial => (
+    <blockquote class="mb-4 p-4 border-2 border-black bg-white shadow-[4px_4px_0_rgb(0,0,0)]">
+      <p class="italic">"{testimonial.quote}"</p>
+      <footer class="mt-2 text-right">- {testimonial.author}</footer>
+    </blockquote>
+  ))}
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-gray-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Conclusion</h2>
+  <p class="mb-4 text-lg">
+    The Uno Card Game Project brought together advanced tools and frameworks to create a real-time, multiplayer experience. Despite the tight 12-hour timeline, collaboration with Josh Borseth and a focused development approach led us to secure 1st place in the UFV Hackathon. Utilizing TypeScript across the stack minimized bugs and enabled a seamless developer experience, while PusherJS allowed us to replicate the fast-paced gameplay of Uno.
+  </p>
+  <p class="text-lg">
+    This project not only demonstrated our ability to work efficiently under pressure but also enhanced my skills in developing real-time applications, leveraging type-safe full-stack solutions, and working with a scalable SQL database. It was a truly rewarding experience and a testament to what can be achieved through teamwork and dedication.
+  </p>
+</section>
+
+<style>
+  :global(body) {
+    @apply bg-gray-100 font-sans;
+  }
+</style>

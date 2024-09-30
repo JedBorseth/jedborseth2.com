@@ -1,7 +1,9 @@
 ---
 import Avatar from "../../components/Avatar.astro";
 import Link from "../../components/Link.astro";
+import MovieDB from "../../components/MovieDB.astro";
 import Layout from "../../layouts/layout.astro";
+import Uno from "../../components/Uno.astro";
 export function getStaticPaths() {
   return [
     { params: { project: "uno" } },
@@ -19,10 +21,8 @@ const { project } = Astro.params;
   canonicalURL={`https://jedborseth.com/projects/${project}`}
 >
   <div class="">
-    <div class="scale-50">
-      <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
-    </div>
-    <h1>{project}</h1>
+    {project === "movie-db" && <MovieDB />}
+    {project === "uno" && <Uno />}
     <div
       transition:name={project}
       class="absolute top-0 left-0 opacity-0 bg-main h-screen w-screen -z-50"

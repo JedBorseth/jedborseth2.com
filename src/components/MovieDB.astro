@@ -1,0 +1,126 @@
+---
+import Avatar from "./Avatar.astro";
+
+const project = {
+  title: "Movie Database Project",
+  subtitle: "A collaborative project featuring a comprehensive movie database using modern web technologies.",
+  techStack: ["Next.js", "Sass", "Supabase", "Next Auth"],
+  collaborators: [
+    { name: "Jalen Cameron", role: "Frontend Design" },
+    { name: "Danial Daneshfar", role: "Front/Backend Development" },
+    { name: "Riley Leclaire", role: "UI/UX Designer" },
+  ],
+  description: `
+    The Movie Database Project is a collaborative web application designed to offer users a seamless experience in browsing, searching, and discovering movies. The project was built using the Next.js Pages Router, a powerful React-based framework that allowed us to create a highly optimized and fast-loading interface for movie lovers. By leveraging the capabilities of Supabase as the backend, we were able to manage a robust and scalable database for storing movie information, user reviews, and more.
+  `,
+  projectImages: [
+    { src: "/images/movie-db-1.png", alt: "Homepage of Movie Database Project" },
+    { src: "/images/movie-db-2.png", alt: "Movie details page" },
+    { src: "/images/movie-db-3.png", alt: "User authentication screen" },
+  ],
+  testimonials: [
+    {
+      quote: "Working on this project was an amazing experience. The collaboration and use of cutting-edge tools made it truly unique.",
+      author: "Danial Daneshfar",
+    },
+    {
+      quote: "The integration of Supabase with Next.js was seamless and made the database management a breeze.",
+      author: "Jalen Cameron",
+    },
+  ],
+};
+---
+
+<section class="p-8 m-8 border-4 border-black bg-yellow-200 shadow-[8px_8px_0_rgb(0,0,0)] relative">
+    <div class="scale-[0.25] absolute -top-20 -right-20 group">
+        <a href="/">
+            <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+            <p class="group-hover:grid hidden h-56 w-56 rounded-full place-items-center text-6xl">Go Back</p>
+        </a>
+      </div>
+  <h1 class="text-4xl font-bold mb-4">{project.title}</h1>
+  <h2 class="text-2xl mb-6">{project.subtitle}</h2>
+  <p class="text-lg leading-relaxed">{project.description}</p>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-pink-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Tech Stack</h2>
+  <ul class="list-disc list-inside">
+    {project.techStack.map((tech) => (
+      <li>{tech}</li>
+    ))}
+  </ul>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-cyan-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Collaboration</h2>
+  <p class="text-lg mb-4">
+    This project was developed as part of a collaboration with three other talented individuals from BCIT. Each team member brought a unique set of skills to the table, contributing to various aspects of the project:
+  </p>
+  <ul class="list-disc list-inside mb-4">
+    {project.collaborators.map(collaborator => (
+      <li><strong>{collaborator.name}</strong>: {collaborator.role}</li>
+    ))}
+  </ul>
+  <p class="text-lg">
+    The collaborative nature of the project enabled us to divide the workload efficiently, ensuring that each area—from backend logic to front-end design—was handled with care and expertise. Regular stand-ups and online meetings helped us stay aligned and tackle challenges together.
+  </p>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-lime-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Features</h2>
+  <ul class="list-disc list-inside">
+    <li><strong>Comprehensive Movie Search:</strong> Users can search for movies based on titles, genres, release dates, and ratings.</li>
+    <li><strong>Authentication and User Accounts:</strong> Powered by Next Auth, users can create accounts, log in, and save their favorite movies.</li>
+    <li><strong>Real-Time Database Updates:</strong> Supabase's real-time capabilities keep user data and movie reviews updated instantly.</li>
+    <li><strong>Responsive Design:</strong> Developed with Sass, the user interface is fully responsive, offering a great experience across devices.</li>
+  </ul>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-purple-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Challenges and Solutions</h2>
+  <p class="mb-4 text-lg">
+    Developing the Movie Database Project presented several interesting challenges:
+  </p>
+  <ul class="list-disc list-inside">
+    <li><strong>Data Management with Supabase:</strong> Managing and structuring a database for thousands of movies required careful planning. We utilized Supabase's scalability and real-time features to keep data consistent and accessible. By designing efficient SQL queries and indexes, we optimized data retrieval times.</li>
+    <li><strong>Authentication Integration:</strong> Integrating Next Auth with various providers was complex. We addressed this by utilizing OAuth flows and customizing authentication logic to fit our needs, ensuring user data remained secure while providing a smooth login experience.</li>
+    <li><strong>Collaboration Between Team Members:</strong> Coordinating efforts across four team members required strong communication. To streamline our workflow, we utilized tools like Git for version control and Trello for task management, ensuring everyone was on the same page.</li>
+    <li><strong>UI/UX Consistency:</strong> Ensuring a consistent look and feel across different parts of the application was challenging due to the involvement of multiple developers. Using Scss with a shared design system helped us maintain uniformity in components and styling.</li>
+  </ul>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-blue-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Project Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {project.projectImages.map(image => (
+      <img src={image.src} alt={image.alt} class="border-4 border-black shadow-[8px_8px_0_rgb(0,0,0)]" />
+    ))}
+  </div>
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-red-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Testimonials</h2>
+  {project.testimonials.map(testimonial => (
+    <blockquote class="mb-4 p-4 border-2 border-black bg-white shadow-[4px_4px_0_rgb(0,0,0)]">
+      <p class="italic">"{testimonial.quote}"</p>
+      <footer class="mt-2 text-right">- {testimonial.author}</footer>
+    </blockquote>
+  ))}
+</section>
+
+<section class="p-8 m-8 border-4 border-black bg-gray-200 shadow-[8px_8px_0_rgb(0,0,0)]">
+  <h2 class="text-2xl font-bold mb-4">Conclusion</h2>
+  <p class="mb-4 text-lg">
+    The Movie Database Project was an incredible opportunity to work with a talented team and leverage some of the best tools available in modern web development. Using Next.js allowed us to build a fast and responsive application, while Supabase provided a powerful backend to manage our data efficiently. The collaborative nature of the project fostered creativity and problem-solving, and ultimately led to a product we are all proud of.
+  </p>
+  <p class="text-lg">
+    This project not only expanded my technical skills but also reinforced the importance of effective teamwork and communication. It was a rewarding experience that prepared me for future collaborative endeavors in the web development industry.
+  </p>
+</section>
+
+<style>
+  :global(body) {
+    @apply bg-gray-100 font-sans;
+  }
+</style>
