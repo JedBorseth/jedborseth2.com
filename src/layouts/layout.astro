@@ -1,5 +1,6 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
+
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 const { title, canonicalURL } = Astro.props;
@@ -15,6 +16,7 @@ const { description, author, socialImageURL } = {
 <!doctype html>
 <html lang="en">
   <head>
+    <ClientRouter />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -52,17 +54,18 @@ const { description, author, socialImageURL } = {
         />
       )
     }
-
-    <ViewTransitions />
   </head>
   <body>
-    <main class="min-h-screen bg-bg flex flex-col md:flex-row">
-      
+    <main class="min-h-screen bg-bg flex flex-col md:flex-row font-mono">
       <slot />
     </main>
-    <footer class="bg-bg p-5 text-center">
-      <span>&copy; Copyright Jed Borseth {new Date().getFullYear()}</span>
-      <div class="text-red-500">site is still under construction</div>
+    <footer
+      class="bg-bg bg-opacity-80 p-2 text-center flex flex-col justify-center"
+    >
+      <div>Jed Borseth &copy; {new Date().getFullYear()}</div>
+      <div class="text-xs">
+        Check out <a href="https://astro.build/">Astro 🚀</a>
+      </div>
     </footer>
   </body>
 </html>

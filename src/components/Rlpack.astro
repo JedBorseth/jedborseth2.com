@@ -1,0 +1,142 @@
+---
+import { Image } from "astro:assets";
+// @ts-expect-error
+import InventoryImage1 from "../../public/images/rl-inventory.PNG";
+import InventoryImage2 from "../../public/images/rl-inventory2.png";
+
+import Avatar from "./Avatar.astro";
+
+const rlProjects = {
+  company: "R&L Packaging",
+  description: `R&L Packaging is a rapidly expanding cardboard company where I have contributed to numerous projects that enhance operational efficiency, modernize workflows, and ensure technological reliability.`,
+  projects: [
+    {
+      title: "Inventory Tracking PWA",
+      subtitle:
+        "A native-like mobile Progressive Web App for inventory management.",
+      techStack: [
+        "Next.js",
+        "TailwindCSS",
+        "shadcn",
+        "DrizzleORM",
+        "Turso/SQLite",
+      ],
+      features: [
+        "Track inventory ranging from pallets to scrap material waste.",
+        "Export inventory data to CSV.",
+        "Generate QR codes for products.",
+        "Full-stack type safety for robust development.",
+      ],
+      description: `This PWA allows users to efficiently manage inventory, including scrap materials that can be repurposed. The intuitive interface streamlines job-specific inventory selection and helps reduce waste. The use of modern tools like Next.js and Turso/SQLite ensured a smooth and scalable application experience.`,
+      images: [
+        {
+          src: InventoryImage1,
+          alt: "Inventory dashboard view.",
+        },
+        {
+          src: InventoryImage2,
+          alt: "QR code generation screen.",
+        },
+      ],
+    },
+    {
+      title: "Automation Scripts",
+      subtitle:
+        "Enabling seamless synchronization between local spreadsheets and Trello.",
+      description: `Developed automation scripts to bridge the gap between local Excel spreadsheets and Trello, ensuring up-to-date project management data. This eliminated manual updates, saving time and reducing errors.`,
+      images: [
+        {
+          src: "/images/rl-script.png",
+          alt: "Script execution interface.",
+        },
+      ],
+    },
+  ],
+  additionalContributions: [
+    "Computer maintenance and virus removal.",
+    "Forgot password retrieval",
+    "Networking infrastructure setup and remote desktop access.",
+    "Various Excel VBA scripting",
+    "Pen testing and optimization of the rlpackaging.ca WordPress site.",
+  ],
+};
+---
+
+<section
+  class="p-8 m-8 border-4 border-black bg-yellow-200 shadow-[8px_8px_0_rgb(0,0,0)] relative"
+>
+  <div class="scale-[0.25] absolute -top-20 -right-20 group">
+    <a href="/">
+      <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+      <p
+        class="group-hover:grid hidden h-56 w-56 rounded-full place-items-center text-6xl"
+      >
+        Go Back
+      </p>
+    </a>
+  </div>
+  <h1 class="text-4xl font-bold mb-4">{rlProjects.company}</h1>
+  <h2 class="text-2xl mb-6">Overview</h2>
+  <p class="text-lg leading-relaxed">{rlProjects.description}</p>
+</section>
+
+<section
+  class="p-8 m-8 border-4 border-black bg-pink-200 shadow-[8px_8px_0_rgb(0,0,0)]"
+>
+  <h2 class="text-2xl font-bold mb-4">Projects</h2>
+  {
+    rlProjects.projects.map((project) => (
+      <div class="mb-8">
+        <h3 class="text-xl font-bold">{project.title}</h3>
+        <h4 class="text-lg italic mb-2">{project.subtitle}</h4>
+        <p class="text-lg mb-4">{project.description}</p>
+        {project.features && (
+          <ul class="list-disc list-inside mb-4">
+            {project.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+        )}
+        {project.images && (
+          <div class="flex flex-wrap gap-4">
+            {project.images.map((image) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={640}
+                height={480}
+                class="border-4 border-black shadow-[8px_8px_0_rgb(0,0,0)] w-auto h-52"
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    ))
+  }
+</section>
+
+<section
+  class="p-8 m-8 border-4 border-black bg-cyan-200 shadow-[8px_8px_0_rgb(0,0,0)]"
+>
+  <h2 class="text-2xl font-bold mb-4">Additional Contributions</h2>
+  <ul class="list-disc list-inside">
+    {
+      rlProjects.additionalContributions.map((contribution) => (
+        <li>{contribution}</li>
+      ))
+    }
+  </ul>
+</section>
+
+<section
+  class="p-8 m-8 border-4 border-black bg-gray-200 shadow-[8px_8px_0_rgb(0,0,0)]"
+>
+  <h2 class="text-2xl font-bold mb-4">Conclusion</h2>
+  <p class="mb-4 text-lg">
+    My work at R&L Packaging has been diverse, ranging from building
+    sophisticated applications to ensuring robust IT infrastructure. Each
+    project reflects a commitment to improving efficiency and leveraging modern
+    technology to solve real-world challenges. These experiences have
+    significantly enhanced my expertise in software development and IT support.
+  </p>
+</section>

@@ -3,6 +3,7 @@ import Avatar from "../components/Avatar.astro";
 import Badge from "../components/Badge.astro";
 import Link from "../components/Link.astro";
 import Layout from "../layouts/layout.astro";
+import BadgeGroup from "../components/BadgeGroup";
 
 // icons
 import Github from "../../public/images/icons/github.svg";
@@ -27,7 +28,7 @@ import Box from "../../public/images/icons/box.svg";
       />
       <h1 class="text-4xl font-medium">Jed Borseth</h1>
       <p>Full-Stack Software Engineer / Web Developer</p>
-      <div class="md:flex gap-1 flex-wrap md:p-5 mt-2 hidden">
+      <!-- <div class="md:flex gap-1 flex-wrap md:p-5 mt-2 hidden">
         <Badge text="Typescript" />
         <Badge text="NextJS" />
         <Badge text="React" />
@@ -38,7 +39,9 @@ import Box from "../../public/images/icons/box.svg";
         <Badge text="NodeJS" />
         <Badge text="ThreeJS" />
         <Badge text="tRPC" />
-      </div>
+      </div> -->
+      <BadgeGroup client:load />
+      <!-- This is an expensive component -->
     </div>
   </section>
   <section
@@ -72,7 +75,7 @@ import Box from "../../public/images/icons/box.svg";
     />
     <Link
       title="Movie DB"
-      subtitle="moviedb.jedborseth.com"
+      subtitle="Collaborative Project"
       repo="https://github.com/JedBorseth/movie-database"
       href="./projects/movie-db"
       projectName="movie-db"
@@ -80,6 +83,7 @@ import Box from "../../public/images/icons/box.svg";
     />
     <Link
       title="Uno Game"
+      subtitle="Hackathon Project"
       repo="https://github.com/joshborseth/uno-game"
       href="./projects/uno"
       projectName="uno"
@@ -87,67 +91,20 @@ import Box from "../../public/images/icons/box.svg";
     />
     <Link
       title="R&L Packaging"
+      subtitle="Professional Project"
       href="./projects/rl-packaging"
       icon={Box.src}
     />
     <Link
-      title="Spotify Clone"
-      href="https://github.com/JedBorseth"
+      title="Site using Stripe"
+      href="https://cookies.jedborseth.com/"
       icon={Github.src}
     />
-    <Link title="More" href="https://github.com/JedBorseth" icon={Github.src} />
-    <Link
-      title="Projects"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-    />
-    <Link
-      title="Soon!"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-    />
-    <Link
-    title="Link0"
-    href="https://github.com/JedBorseth"
-    icon={Github.src}
-    lazy
-  />
-    
+
     <Link
       title="ThreeJS Gallary"
-      href="https://github.com/JedBorseth"
+      href="https://gallery.jedborseth.com/"
       icon={Three.src}
-      lazy
-    />
-    <Link
-      title="Link1"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-      lazy
-    />
-    <Link
-      title="Link2"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-      lazy
-    />
-    <Link
-      title="Link3"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-      lazy
-    />
-    <Link
-      title="Link4"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-      lazy
-    />
-    <Link
-      title="Link5"
-      href="https://github.com/JedBorseth"
-      icon={Github.src}
-      lazy
     />
   </section>
 </Layout>

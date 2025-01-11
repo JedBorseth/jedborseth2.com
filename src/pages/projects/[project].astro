@@ -4,6 +4,7 @@ import Link from "../../components/Link.astro";
 import MovieDB from "../../components/MovieDB.astro";
 import Layout from "../../layouts/layout.astro";
 import Uno from "../../components/Uno.astro";
+import Rlpack from "../../components/Rlpack.astro";
 export function getStaticPaths() {
   return [
     { params: { project: "uno" } },
@@ -23,6 +24,7 @@ const { project } = Astro.params;
   <div class="">
     {project === "movie-db" && <MovieDB />}
     {project === "uno" && <Uno />}
+    {project === "rl-packaging" && <Rlpack />}
     <div
       transition:name={project}
       class="absolute top-0 left-0 opacity-0 bg-main h-screen w-screen -z-50"
