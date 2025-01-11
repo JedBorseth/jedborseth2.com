@@ -33,7 +33,22 @@ function shuffleArray<T>(array: T[]): T[] {
 
 const App = () => {
   const [shuffledBadges, setShuffledBadges] = useState<string[]>([]);
-  const [triggerShuffle, setTriggerShuffle] = useState(false);
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+
+  // Detect user preference for reduced motion
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setIsReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
 
   // Initial shuffle
   useEffect(() => {
@@ -42,12 +57,13 @@ const App = () => {
 
   // Second shuffle after a delay
   useEffect(() => {
+    if (isReducedMotion) return; // Skip animation if reduced motion is preferred
+
     const timeout = setTimeout(() => {
       setShuffledBadges(shuffleArray(badges));
-      setTriggerShuffle(true);
     }, 150); // Adjust delay as needed
     return () => clearTimeout(timeout);
-  }, []);
+  }, [isReducedMotion]);
 
   return (
     <motion.div className="md:flex gap-2 flex-wrap md:p-5 mt-2 relative" layout>
@@ -56,12 +72,16 @@ const App = () => {
           key={badge}
           className="w-max"
           layout
-          transition={{
-            layout: {
-              duration: 0.75,
-              ease: "easeInOut",
-            },
-          }}
+          transition={
+            isReducedMotion
+              ? {} // Skip animation if reduced motion is preferred
+              : {
+                  layout: {
+                    duration: 0.75,
+                    ease: "easeInOut",
+                  },
+                }
+          }
         >
           <Badge text={badge} />
         </motion.div>
