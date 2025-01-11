@@ -66,7 +66,7 @@ const App = () => {
   }, [isReducedMotion]);
 
   return (
-    <motion.div className="md:flex gap-2 flex-wrap md:p-5 mt-2 relative" layout>
+    <motion.div className="flex gap-2 flex-wrap md:p-5 mt-2 relative" layout>
       {shuffledBadges.map((badge) => (
         <motion.div
           key={badge}
