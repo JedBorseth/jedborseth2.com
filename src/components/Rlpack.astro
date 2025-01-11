@@ -1,9 +1,4 @@
 ---
-import { Image } from "astro:assets";
-// @ts-expect-error
-import InventoryImage1 from "../../public/images/rl-inventory.PNG";
-import InventoryImage2 from "../../public/images/rl-inventory2.png";
-
 import Avatar from "./Avatar.astro";
 
 const rlProjects = {
@@ -30,11 +25,11 @@ const rlProjects = {
       description: `This PWA allows users to efficiently manage inventory, including scrap materials that can be repurposed. The intuitive interface streamlines job-specific inventory selection and helps reduce waste. The use of modern tools like Next.js and Turso/SQLite ensured a smooth and scalable application experience.`,
       images: [
         {
-          src: InventoryImage1,
+          src: "/images/rl-inventory.png",
           alt: "Inventory dashboard view.",
         },
         {
-          src: InventoryImage2,
+          src: "/images/rl-inventory2.png",
           alt: "QR code generation screen.",
         },
       ],
@@ -100,7 +95,7 @@ const rlProjects = {
         {project.images && (
           <div class="flex flex-wrap gap-4">
             {project.images.map((image) => (
-              <Image
+              <img
                 src={image.src}
                 alt={image.alt}
                 width={640}

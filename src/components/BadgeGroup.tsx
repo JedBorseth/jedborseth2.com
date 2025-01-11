@@ -22,7 +22,8 @@ const badges = [
   "DrizzleORM",
   "GoLang",
   "NodeJS",
-  "ThreeJS",
+  "AWS",
+  "HTMX",
   "tRPC",
 ];
 
