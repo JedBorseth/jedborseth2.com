@@ -5,9 +5,37 @@ interface BadgeProps {
   text: string;
 }
 
+const pastelColors = [
+  "#FFCDD2", // Light red
+  "#F8BBD0", // Light pink
+  "#E1BEE7", // Light purple
+  "#D1C4E9", // Light lavender
+  "#C5CAE9", // Light blue
+  "#BBDEFB", // Light sky blue
+  "#B3E5FC", // Light cyan
+  "#B2EBF2", // Light teal
+  "#C8E6C9", // Light green
+  "#DCEDC8", // Light lime green
+  "#FFF9C4", // Light yellow
+  "#FFECB3", // Light amber
+  "#FFE0B2", // Light orange
+];
+
+const getRandomPastelColor = () =>
+  pastelColors[Math.floor(Math.random() * pastelColors.length)];
+
 const Badge = ({ text }: BadgeProps) => {
+  const [bgColor, setBgColor] = useState<string>("");
+
+  useEffect(() => {
+    setBgColor(getRandomPastelColor());
+  }, []);
+
   return (
-    <div className="w-min rounded-base border-2 border-black bg-main px-3 py-1.5 text-sm font-base">
+    <div
+      className="w-min rounded-base border-2 border-black px-3 py-1.5 text-sm font-base"
+      style={{ backgroundColor: bgColor }}
+    >
       {text}
     </div>
   );

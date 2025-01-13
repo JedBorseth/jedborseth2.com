@@ -12,8 +12,15 @@ import Mail from "../../public/images/icons/gmail.svg";
   canonicalURL={`https://jedborseth.com/resume`}
 >
   <div class="flex flex-col gap-10 items-center">
-    <div class="scale-50">
-      <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+    <div class="scale-50 group transition-all">
+      <a href="/">
+        <Avatar img="https://avatars.githubusercontent.com/u/95988576?v=4" />
+        <p
+          class="group-hover:grid hidden h-56 w-56 rounded-full place-items-center text-6xl text-center"
+        >
+          Go Back
+        </p>
+      </a>
     </div>
     <a
       href="https://github.com/JedBorseth"
